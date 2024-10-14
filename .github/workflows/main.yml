@@ -53,7 +53,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: testpackage
-          path: ./nupkg
+          path: ./nupkgs
           
       # 验证下载的包路径和内容
       - name: Verify artifact path
