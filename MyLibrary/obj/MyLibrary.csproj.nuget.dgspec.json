@@ -8,19 +8,21 @@
       "version": "1.0.0",
       "restore": {
         "projectUniqueName": "C:\\Users\\squar\\Documents\\GitHub\\testpackage\\MyLibrary\\MyLibrary.csproj",
-        "projectName": "MyLibrary",
+        "projectName": "testpackage",
         "projectPath": "C:\\Users\\squar\\Documents\\GitHub\\testpackage\\MyLibrary\\MyLibrary.csproj",
         "packagesPath": "C:\\Users\\squar\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\squar\\Documents\\GitHub\\testpackage\\MyLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
+          "C:\\Users\\squar\\Documents\\GitHub\\testpackage\\MyLibrary\\NuGet.Config",
           "C:\\Users\\squar\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.pkg.github.com/squarewindyk/index.json": {}
         },
         "frameworks": {
           "net8.0": {
@@ -58,7 +60,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.402/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

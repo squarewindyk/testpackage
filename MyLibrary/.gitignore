@@ -1,0 +1,59 @@
+# Build outputs
+bin/
+obj/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Auto-generated files
+*.generated.cs
+*.generated.*
+*.g.*
+
+# Logs
+*.log
+*.tlg
+
+# Visual Studio working directory
+.vs/
+.vscode/
+
+# Rider specific files
+.idea/
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# NuGet Packages
+*.nupkg
+packages/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Enable if you have a local dev config file and do not want to check them in.
+# For example, if the project is testing ASP.NET Core apps
+appsettings.Development.json
+
+# Backup & temporary files
+*.bak
+*.swp
+*~
+
+# Ignore JetBrains Rider specific settings
+.idea/
+
+# Ignore ReSharper settings
+_ReSharper*/
+
+# Ignore DotCover analysis reports
+*.dcov
+
+# Azure Pipelines
+.terraform
+.pipelines/

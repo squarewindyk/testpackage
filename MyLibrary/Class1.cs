@@ -1,4 +1,5 @@
-﻿namespace MyLibrary;
+﻿using System;
+namespace MyLibrary;
 
 public class GithubPackage
     {
