@@ -1,0 +1,62 @@
+name: .NET Package Build and Publish
+
+on:
+  push:
+    branches:
+      - main  # 当有提交到 main 分支时触发
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # 使用最新的 Ubuntu 作为运行环境
+
+    steps:
+      # 检出代码
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 设置 .NET SDK 版本
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.x'  # 指定使用的 .NET 版本，可以根据需要调整
+
+      # 恢复依赖项
+      - name: Restore dependencies
+        run: dotnet restore
+
+      # 构建项目
+      - name: Build project
+        run: dotnet build --configuration Release --no-restore
+
+      # 打包项目
+      - name: Pack project
+        run: dotnet pack --configuration Release --no-build --output ./nupkgs
+
+      # 上传打包后的 NuGet 包作为 artifact（制品）
+      - name: Upload NuGet package
+        uses: actions/upload-artifact@v4
+        with:
+          name: my-dotnet-package  # 制品名称
+          path: ./nupkgs/*.nupkg   # 打包的 NuGet 文件路径
+
+  publish:
+    needs: build  # 依赖于 build job
+    runs-on: ubuntu-latest
+
+    steps:
+      # 检出代码
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 下载构建的 NuGet 包
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: my-dotnet-package
+
+      # 发布到 GitHub Packages
+      - name: Publish to GitHub Packages
+        run: |
+          dotnet nuget push ./nupkgs/*.nupkg \
+            --api-key ${{ secrets.GITHUB_TOKEN }} \
+            --source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json"
