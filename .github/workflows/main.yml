@@ -36,7 +36,7 @@ jobs:
       - name: Upload NuGet package
         uses: actions/upload-artifact@v4
         with:
-          name: my-dotnet-package  # 制品名称
+          name: testpackage  # 制品名称
           path: ./nupkgs/*.nupkg   # 打包的 NuGet 文件路径
 
   publish:
