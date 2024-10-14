@@ -53,11 +53,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: testpackage
-          
-      - name: Verify artifact path
-        run: |
-          echo "Listing contents of /home/runner/work/testpackage/testpackage"
-          ls -R /home/runner/work/testpackage/testpackage
+          path: ./nupkg
         
       # 发布到 GitHub Packages
       - name: Publish to GitHub Packages
